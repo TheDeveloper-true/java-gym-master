@@ -1,5 +1,7 @@
 package ru.yandex.practicum.gym;
 
+import java.util.Objects;
+
 public class TrainingSession {
 
     //группа
@@ -33,4 +35,32 @@ public class TrainingSession {
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;
     }
+
+    @Override
+    public String toString() {
+        return "TrainingSession{" +
+                "group=" + group +
+                ", coach=" + coach +
+                ", dayOfWeek=" + dayOfWeek +
+                ", timeOfDay=" + timeOfDay +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        TrainingSession session = (TrainingSession) o;
+        return Objects.equals(group, session.group) && Objects.equals(coach, session.coach) && dayOfWeek == session.dayOfWeek && Objects.equals(timeOfDay, session.timeOfDay);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(group, coach, dayOfWeek, timeOfDay);
+    }
 }
+
+
+
+
+
+
